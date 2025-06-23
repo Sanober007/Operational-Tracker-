@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Header Buttons - Before & After</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0077B6;
+        }
+
+        .demo-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .comparison-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .old-title { color: #d97706; }
+        .new-title { color: #0077B6; }
+
+        /* Header Demo Styles */
+        .header-demo {
+            background: #0096C7;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left h1 {
+            color: #FBFBFB;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .header-left p {
+            color: #FBFBFB;
+            font-size: 14px;
+            opacity: 0.85;
+            margin: 2px 0 0 0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* OLD STYLE - Basic buttons */
+        .old-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .old-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .old-button svg {
+            color: #FBFBFB;
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+        }
+
+        .old-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #6A1B9A;
+            color: #FBFBFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .old-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        /* NEW ENHANCED STYLE - Premium buttons */
+        .enhanced-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            position: relative;
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        .enhanced-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .enhanced-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .enhanced-button svg {
+            color: #FBFBFB;
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+            position: relative;
+            z-index: 1;
+        }
+
+        .enhanced-button svg:hover {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) 
+                    drop-shadow(0 0 12px rgba(255, 255, 255, 0.4))
+                    drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+        }
+
+        .enhanced-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            position: relative;
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        .enhanced-avatar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .enhanced-avatar:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .enhanced-avatar-inner {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #6A1B9A;
+            color: #FBFBFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 2px 6px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        .features-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .features-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0077B6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🔧 Enhanced Header Buttons</h1>
+            <p class="demo-subtitle">Settings & Profile Button Improvements</p>
+            <p style="color: #888; max-width: 600px; margin: 0 auto;">
+                See how the settings gear icon and profile button have been enhanced for better visibility, 
+                contrast, and modern appearance suitable for web and mobile dashboards.
+            </p>
+        </div>
+
+        <div class="comparison-grid">
+            <!-- BEFORE -->
+            <div class="comparison-section">
+                <h3 class="section-title old-title">❌ BEFORE: Basic Styling</h3>
+                <div class="header-demo">
+                    <div class="header-left">
+                        <h1>Operational Tracker</h1>
+                        <p>Facility Manager</p>
+                    </div>
+                    <div class="header-right">
+                        <button class="old-button" onclick="alert('Old settings button clicked!')">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </button>
+                        <button class="old-avatar" onclick="alert('Old profile button clicked!')">S</button>
+                    </div>
+                </div>
+                <p style="font-size: 12px; color: #666; text-align: center;">
+                    Basic styling with minimal contrast and simple hover effects
+                </p>
+            </div>
+
+            <!-- AFTER -->
+            <div class="comparison-section">
+                <h3 class="section-title new-title">✅ AFTER: Enhanced Premium Style</h3>
+                <div class="header-demo">
+                    <div class="header-left">
+                        <h1>Operational Tracker</h1>
+                        <p>Facility Manager</p>
+                    </div>
+                    <div class="header-right">
+                        <button class="enhanced-button" onclick="alert('Enhanced settings button clicked!')">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </button>
+                        <button class="enhanced-avatar" onclick="alert('Enhanced profile button clicked!')">
+                            <div class="enhanced-avatar-inner">S</div>
+                        </button>
+                    </div>
+                </div>
+                <p style="font-size: 12px; color: #666; text-align: center;">
+                    Try hovering and clicking the enhanced buttons!
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="features-title">✨ Enhancement Features Applied</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Enhanced Icon Contrast</div>
+                    <div class="feature-description">Thicker stroke (2.5px), enhanced drop shadows, and glow effects for better visibility</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👤</div>
+                    <div class="feature-title">Defined Profile Circle</div>
+                    <div class="feature-description">Clear borders, inner shadows, and enhanced text contrast with better typography</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💫</div>
+                    <div class="feature-title">Subtle Glow & Shadows</div>
+                    <div class="feature-description">Multi-layered shadows and glow effects for depth and premium appearance</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Glass-morphism Effect</div>
+                    <div class="feature-description">Backdrop blur, gradient overlays, and enhanced transparency for modern look</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-title">Touch-Friendly</div>
+                    <div class="feature-description">Larger touch targets, enhanced hover states, and mobile-optimized interactions</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Smooth Animations</div>
+                    <div class="feature-description">Subtle pulse animation, enhanced hover effects, and smooth transitions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

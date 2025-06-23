@@ -1,0 +1,12 @@
+# Clear npm cache
+npm cache clean --force
+
+# Remove node_modules and package-lock.json
+rmdir /s /q node_modules
+del package-lock.json
+
+# Install vite locally with a specific version known to work with Node.js
+npm install vite@4.5.2 --save-dev
+node_modules
+node_modules
+node_modules

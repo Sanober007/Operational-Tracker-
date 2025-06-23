@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Highlighted Tasks - Before & After</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0077B6;
+        }
+
+        .demo-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .comparison-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .old-title { color: #d97706; }
+        .new-title { color: #0077B6; }
+
+        /* Task List Container */
+        .task-container {
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background: #f9fafb;
+            overflow: hidden;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .task-header {
+            background: #48CAE4;
+            color: #FBFBFB;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* OLD STYLE - Current yellow highlighting */
+        .old-task-list {
+            padding: 16px;
+            background: #f9fafb;
+        }
+
+        .old-task-item {
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-align: left;
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .old-task-item:hover {
+            background-color: #fde68a;
+        }
+
+        .old-task-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* NEW ENHANCED STYLE - Premium modern styling */
+        .enhanced-task-list {
+            padding: 16px;
+            background: #f9fafb;
+        }
+
+        .enhanced-task-item {
+            background-color: #48CAE4;
+            color: #FBFBFB;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-align: left;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .enhanced-task-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .enhanced-task-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: #5BCAE8;
+        }
+
+        .enhanced-task-item:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .enhanced-task-item:focus {
+            outline: 2px solid #FBFBFB;
+            outline-offset: 2px;
+        }
+
+        .enhanced-task-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .enhanced-task-text {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: inherit;
+            font-size: inherit;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation for smooth transitions */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .enhanced-task-item {
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .enhanced-task-item:nth-child(1) { animation-delay: 0.1s; }
+        .enhanced-task-item:nth-child(2) { animation-delay: 0.2s; }
+        .enhanced-task-item:nth-child(3) { animation-delay: 0.3s; }
+        .enhanced-task-item:nth-child(4) { animation-delay: 0.4s; }
+        .enhanced-task-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Features section */
+        .features-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .features-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0077B6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #48CAE4 0%, #0077B6 100%);
+            color: #FBFBFB;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
+        }
+
+        .highlight-text {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .css-code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        .css-comment {
+            color: #6a9955;
+        }
+
+        .css-property {
+            color: #9cdcfe;
+        }
+
+        .css-value {
+            color: #ce9178;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .demo-title {
+                font-size: 28px;
+            }
+            
+            .demo-subtitle {
+                font-size: 16px;
+            }
+            
+            .comparison-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🎨 Enhanced Highlighted Tasks</h1>
+            <p class="demo-subtitle">Transform Yellow Highlights to Modern Premium Design</p>
+            <p style="color: #888; max-width: 600px; margin: 0 auto;">
+                Apply modern #48CAE4 background, #FBFBFB text, 8px rounded corners, 
+                and elegant shadows to make highlighted task items visually distinct and premium.
+            </p>
+        </div>
+
+        <div class="highlight-box">
+            <p class="highlight-text">
+                ✨ Same font size, weight & text - Enhanced with modern colors, spacing & depth
+            </p>
+        </div>
+
+        <div class="comparison-grid">
+            <!-- BEFORE -->
+            <div class="comparison-section">
+                <h3 class="section-title old-title">❌ BEFORE: Current Yellow Highlighting</h3>
+                <div class="task-container">
+                    <div class="task-header">Title</div>
+                    <div class="old-task-list">
+                        <button class="old-task-item" onclick="alert('Old style: Office Furniture Repair')">Office Furniture Repair</button>
+                        <button class="old-task-item" onclick="alert('Old style: Monthly Cleaning Service')">Monthly Cleaning Service</button>
+                        <button class="old-task-item" onclick="alert('Old style: HVAC System Maintenance')">HVAC System Maintenance</button>
+                        <button class="old-task-item" onclick="alert('Old style: Electrical Wiring Repair')">Electrical Wiring Repair</button>
+                        <button class="old-task-item" onclick="alert('Old style: Replace broken window')">Replace broken window</button>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 12px; color: #666; text-align: center;">
+                    Basic yellow highlighting with minimal visual impact
+                </p>
+            </div>
+
+            <!-- AFTER -->
+            <div class="comparison-section">
+                <h3 class="section-title new-title">✅ AFTER: Enhanced Premium Style</h3>
+                <div class="task-container">
+                    <div class="task-header">Title</div>
+                    <div class="enhanced-task-list">
+                        <button class="enhanced-task-item" onclick="handleTaskClick('Office Furniture Repair')">
+                            <span class="enhanced-task-text">Office Furniture Repair</span>
+                        </button>
+                        <button class="enhanced-task-item" onclick="handleTaskClick('Monthly Cleaning Service')">
+                            <span class="enhanced-task-text">Monthly Cleaning Service</span>
+                        </button>
+                        <button class="enhanced-task-item" onclick="handleTaskClick('HVAC System Maintenance')">
+                            <span class="enhanced-task-text">HVAC System Maintenance</span>
+                        </button>
+                        <button class="enhanced-task-item" onclick="handleTaskClick('Electrical Wiring Repair')">
+                            <span class="enhanced-task-text">Electrical Wiring Repair</span>
+                        </button>
+                        <button class="enhanced-task-item" onclick="handleTaskClick('Replace broken window')">
+                            <span class="enhanced-task-text">Replace broken window</span>
+                        </button>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 12px; color: #666; text-align: center;">
+                    Click any item to test enhanced interactivity!
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <h2 class="features-title">✨ Enhancement Features Applied</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Modern Color Scheme</div>
+                    <div class="feature-description">Background: #48CAE4<br>Text: #FBFBFB<br>High contrast & professional</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📐</div>
+                    <div class="feature-title">8px Rounded Corners</div>
+                    <div class="feature-description">Smooth, contemporary border radius for modern feel</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💫</div>
+                    <div class="feature-title">Soft Drop Shadow</div>
+                    <div class="feature-description">0 2px 8px rgba(0,0,0,0.1)<br>Visual depth and elevation</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📏</div>
+                    <div class="feature-title">Enhanced Padding</div>
+                    <div class="feature-description">16px padding inside each item<br>Better spacing and touch targets</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👁️</div>
+                    <div class="feature-title">Visually Distinct</div>
+                    <div class="feature-description">Clear visual hierarchy<br>Modern premium dashboard UI</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Smooth Interactions</div>
+                    <div class="feature-description">Hover lift effects<br>0.3s ease-in-out transitions</div>
+                </div>
+            </div>
+
+            <!-- CSS Code for Implementation -->
+            <h3 style="color: #0077B6; margin: 30px 0 15px 0; text-align: center; font-size: 20px;">🔧 CSS Code to Apply These Changes</h3>
+            <div class="css-code">
+<span class="css-comment">/* Enhanced Task Item Styling */</span>
+<span class="css-property">.enhanced-task-item</span> {
+  <span class="css-property">background-color</span>: <span class="css-value">#48CAE4</span>;
+  <span class="css-property">color</span>: <span class="css-value">#FBFBFB</span>;
+  <span class="css-property">padding</span>: <span class="css-value">16px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-value">8px</span>;
+  <span class="css-property">box-shadow</span>: <span class="css-value">0 2px 8px rgba(0, 0, 0, 0.1)</span>;
+  <span class="css-property">transition</span>: <span class="css-value">all 0.3s ease-in-out</span>;
+  <span class="css-property">margin-bottom</span>: <span class="css-value">12px</span>;
+  <span class="css-property">border</span>: <span class="css-value">none</span>;
+  <span class="css-property">cursor</span>: <span class="css-value">pointer</span>;
+}
+
+<span class="css-property">.enhanced-task-item:hover</span> {
+  <span class="css-property">transform</span>: <span class="css-value">translateY(-2px)</span>;
+  <span class="css-property">box-shadow</span>: <span class="css-value">0 4px 12px rgba(0, 0, 0, 0.15)</span>;
+  <span class="css-property">background-color</span>: <span class="css-value">#5BCAE8</span>;
+}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleTaskClick(taskName) {
+            alert(`✅ Enhanced Task Selected: ${taskName}\n\n🎯 Applied Enhancements:\n• Background: #48CAE4\n• Text: #FBFBFB\n• 8px rounded corners\n• 16px padding\n• Soft drop shadow\n• Smooth hover animations\n• Premium dashboard styling`);
+            console.log(`Enhanced task clicked: ${taskName}`);
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const items = document.querySelectorAll('.enhanced-task-item');
+            const currentFocus = document.activeElement;
+            const currentIndex = Array.from(items).indexOf(currentFocus);
+
+            if (e.key === 'ArrowDown' && currentIndex < items.length - 1) {
+                e.preventDefault();
+                items[currentIndex + 1].focus();
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                e.preventDefault();
+                items[currentIndex - 1].focus();
+            } else if (e.key === 'Enter' && currentFocus.classList.contains('enhanced-task-item')) {
+                e.preventDefault();
+                currentFocus.click();
+            }
+        });
+
+        // Add entrance animation on page load
+        window.addEventListener('load', function() {
+            const items = document.querySelectorAll('.enhanced-task-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'all 0.3s ease-out';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        });
+    </script>
+</body>
+</html>

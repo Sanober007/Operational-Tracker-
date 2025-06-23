@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Header Design - Operational Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-description {
+            color: #6b7280;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Modern Header Styles */
+        .modern-header {
+            background: linear-gradient(135deg, #F4F7FE 0%, #EEF1FA 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            transition: all 0.2s ease-in-out;
+            margin: 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .modern-header:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-content {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1f2937;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-button:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .header-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #6A1B9A;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-avatar.facility { background: #1E88E5; }
+        .header-avatar.finance { background: #43A047; }
+        .header-avatar.ceo { background: #6A1B9A; }
+
+        /* Settings icon */
+        .settings-icon {
+            width: 20px;
+            height: 20px;
+            color: #6b7280;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .modern-header {
+                margin: 8px;
+                border-radius: 6px;
+            }
+            
+            .header-content {
+                padding: 16px;
+            }
+            
+            .header-title {
+                font-size: 18px;
+            }
+            
+            .header-subtitle {
+                font-size: 12px;
+            }
+            
+            .header-button,
+            .header-avatar {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .modern-header {
+                margin: 4px;
+            }
+            
+            .header-content {
+                padding: 12px 16px;
+            }
+            
+            .header-title {
+                font-size: 16px;
+            }
+            
+            .header-subtitle {
+                font-size: 11px;
+            }
+            
+            .header-right {
+                gap: 8px;
+            }
+        }
+
+        /* Feature list styling */
+        .features {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .features h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .features ul {
+            list-style: none;
+            color: #64748b;
+        }
+
+        .features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .role-demo {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .role-demo {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="demo-section">
+            <h1 class="demo-title">Modern Header Design</h1>
+            <p class="demo-description">
+                Clean, professional dashboard header with modern UI principles, responsive design, and elegant typography.
+            </p>
+            
+            <!-- Main Header Demo -->
+            <div class="modern-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <h1 class="header-title">Operational Tracker</h1>
+                        <p class="header-subtitle">Facility Manager</p>
+                    </div>
+                    <div class="header-right">
+                        <button class="header-button">
+                            <svg class="settings-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </button>
+                        <div class="header-avatar facility">S</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role Variations -->
+            <div class="role-demo">
+                <div class="modern-header">
+                    <div class="header-content">
+                        <div class="header-left">
+                            <h1 class="header-title">Operational Tracker</h1>
+                            <p class="header-subtitle">Finance Officer</p>
+                        </div>
+                        <div class="header-right">
+                            <button class="header-button">
+                                <svg class="settings-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </button>
+                            <div class="header-avatar finance">F</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modern-header">
+                    <div class="header-content">
+                        <div class="header-left">
+                            <h1 class="header-title">Operational Tracker</h1>
+                            <p class="header-subtitle">Chief Executive</p>
+                        </div>
+                        <div class="header-right">
+                            <button class="header-button">
+                                <svg class="settings-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </button>
+                            <div class="header-avatar ceo">C</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modern-header">
+                    <div class="header-content">
+                        <div class="header-left">
+                            <h1 class="header-title">Operational Tracker</h1>
+                            <p class="header-subtitle">Office Assistant</p>
+                        </div>
+                        <div class="header-right">
+                            <button class="header-button">
+                                <svg class="settings-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </button>
+                            <div class="header-avatar">O</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <h3>Design Features</h3>
+                <ul>
+                    <li>Clean Inter/Poppins font family for modern typography</li>
+                    <li>Title: 22px bold, Subtitle: 14px medium with proper spacing</li>
+                    <li>Soft gradient background (#F4F7FE to #EEF1FA)</li>
+                    <li>Subtle box shadow (0 2px 8px rgba(0, 0, 0, 0.05)) for depth</li>
+                    <li>8px rounded corners on containers and profile badge</li>
+                    <li>16px+ padding for breathing room and balance</li>
+                    <li>Smooth hover animations and transitions</li>
+                    <li>Mobile-responsive design with scalable elements</li>
+                    <li>Role-based color coding for user avatars</li>
+                    <li>Professional dashboard aesthetic</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

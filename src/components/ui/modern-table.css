@@ -1,0 +1,151 @@
+/* Modern Table Header Styles */
+.modern-table-header {
+  background-color: #0077B6;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 119, 182, 0.2), 0 2px 4px -1px rgba(0, 119, 182, 0.1);
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.modern-table-header th {
+  font-weight: 700;
+  color: #FBFBFB;
+  padding: 1rem 1.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  border-bottom: none;
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.modern-table-header th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.modern-table-header th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.modern-table-header th:hover {
+  background-color: #0096C7;
+  transform: translateY(-1px);
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  .modern-table-header th {
+    font-size: 16px;
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .modern-table-header th {
+    font-size: 14px;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Table body enhancements */
+.modern-table-body tr {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+  font-family: 'Inter', 'Poppins', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease-in-out !important;
+  margin-bottom: 12px !important;
+  /* Remove border for visual separation */
+  border: none !important;
+}
+
+.modern-table-body tr:hover {
+  background-color: #0096C7 !important;
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16) !important;
+}
+
+.modern-table-body td {
+  color: #FBFBFB !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Responsive adjustments for padding */
+@media (max-width: 768px) {
+  .modern-table-body td {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Action buttons styling */
+.action-button {
+  transition: all 0.15s ease-in-out;
+  border-radius: 6px;
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+}
+
+/* Status badge enhancements */
+.status-badge {
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Query counter styling */
+.query-counter {
+  font-weight: 600;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Professional shadow effects */
+.table-container {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+/* Smooth animations */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+.modern-table-header th:focus,
+.action-button:focus {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .modern-table-header {
+    background-color: #4D55CC !important;
+    color: #FBFBFB !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}

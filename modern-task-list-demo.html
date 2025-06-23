@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Premium Task List Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0077B6;
+        }
+
+        .demo-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .demo-description {
+            font-size: 14px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Modern Task List Styles */
+        .modern-task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .modern-task-item {
+            background-color: #48CAE4;
+            color: #FBFBFB;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            text-align: left;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .modern-task-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .modern-task-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: #5BCAE8;
+        }
+
+        .modern-task-item:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .modern-task-item:focus {
+            outline: 2px solid #FBFBFB;
+            outline-offset: 2px;
+        }
+
+        .modern-task-text {
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: inherit;
+            font-size: inherit;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .modern-task-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .modern-task-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .modern-task-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0077B6;
+        }
+
+        .modern-task-subtitle {
+            font-size: 16px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Animation for smooth transitions */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modern-task-item {
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .modern-task-item:nth-child(1) { animation-delay: 0.1s; }
+        .modern-task-item:nth-child(2) { animation-delay: 0.2s; }
+        .modern-task-item:nth-child(3) { animation-delay: 0.3s; }
+        .modern-task-item:nth-child(4) { animation-delay: 0.4s; }
+        .modern-task-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .demo-title {
+                font-size: 28px;
+            }
+            
+            .demo-subtitle {
+                font-size: 16px;
+            }
+            
+            .modern-task-container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .modern-task-list {
+                padding: 12px;
+                gap: 10px;
+            }
+            
+            .modern-task-item {
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .demo-title {
+                font-size: 24px;
+            }
+            
+            .demo-subtitle {
+                font-size: 15px;
+            }
+            
+            .modern-task-container {
+                padding: 16px;
+            }
+            
+            .modern-task-item {
+                padding: 12px;
+            }
+        }
+
+        /* Demo variations */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .demo-section {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-section h3 {
+            color: #0077B6;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">Modern Premium Task List</h1>
+            <p class="demo-subtitle">Enhanced vertical task list with modern styling</p>
+            <p class="demo-description">
+                Features #48CAE4 background, #FBFBFB text, 8px rounded corners, subtle shadows, 
+                and responsive design for a premium user experience.
+            </p>
+        </div>
+
+        <!-- Main Demo -->
+        <div class="modern-task-container">
+            <div class="modern-task-header">
+                <h2 class="modern-task-title">Maintenance Tasks</h2>
+                <p class="modern-task-subtitle">Click on any task to interact</p>
+            </div>
+            
+            <div class="modern-task-list">
+                <button class="modern-task-item" onclick="handleTaskClick('Office Furniture Repair')">
+                    <span class="modern-task-text">Office Furniture Repair</span>
+                </button>
+                
+                <button class="modern-task-item" onclick="handleTaskClick('Monthly Cleaning Service')">
+                    <span class="modern-task-text">Monthly Cleaning Service</span>
+                </button>
+                
+                <button class="modern-task-item" onclick="handleTaskClick('HVAC System Maintenance')">
+                    <span class="modern-task-text">HVAC System Maintenance</span>
+                </button>
+                
+                <button class="modern-task-item" onclick="handleTaskClick('Electrical Wiring Repair')">
+                    <span class="modern-task-text">Electrical Wiring Repair</span>
+                </button>
+                
+                <button class="modern-task-item" onclick="handleTaskClick('Replace broken window')">
+                    <span class="modern-task-text">Replace broken window</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleTaskClick(taskName) {
+            alert(`Clicked on: ${taskName}`);
+            console.log(`Task clicked: ${taskName}`);
+        }
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const tasks = document.querySelectorAll('.modern-task-item');
+            const currentFocus = document.activeElement;
+            const currentIndex = Array.from(tasks).indexOf(currentFocus);
+
+            if (e.key === 'ArrowDown' && currentIndex < tasks.length - 1) {
+                e.preventDefault();
+                tasks[currentIndex + 1].focus();
+            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+                e.preventDefault();
+                tasks[currentIndex - 1].focus();
+            } else if (e.key === 'Enter' && currentFocus.classList.contains('modern-task-item')) {
+                e.preventDefault();
+                currentFocus.click();
+            }
+        });
+
+        // Add loading state demo
+        function simulateLoading(button) {
+            button.style.opacity = '0.6';
+            button.style.pointerEvents = 'none';
+            
+            setTimeout(() => {
+                button.style.opacity = '1';
+                button.style.pointerEvents = 'auto';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

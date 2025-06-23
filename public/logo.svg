@@ -1,0 +1,18 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rounded rectangle -->
+  <rect x="8" y="8" width="112" height="112" rx="20" ry="20" fill="#0077B6" stroke="#0096C7" stroke-width="2"/>
+  
+  <!-- Chart bars -->
+  <rect x="24" y="80" width="12" height="24" fill="#48CAE4" rx="2"/>
+  <rect x="42" y="70" width="12" height="34" fill="#48CAE4" rx="2"/>
+  <rect x="60" y="55" width="12" height="49" fill="#0096C7" rx="2"/>
+  
+  <!-- Trending arrow -->
+  <path d="M75 65 L95 45 L90 45 L90 40 L100 40 L100 50 L95 50 L95 45 L75 65" fill="#48CAE4"/>
+  <path d="M75 65 L95 45" stroke="#48CAE4" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Small house icon for facility -->
+  <path d="M24 45 L32 37 L40 45 L40 52 L24 52 Z" fill="#FBFBFB"/>
+  <rect x="28" y="47" width="3" height="5" fill="#0077B6"/>
+  <rect x="33" y="47" width="3" height="5" fill="#0077B6"/>
+</svg>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Table Header Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8fafc;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .table-wrapper {
+            padding: 2rem;
+        }
+
+        .modern-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .modern-table-header {
+            background-color: #4D55CC;
+        }
+
+        .modern-table-header th {
+            font-weight: 700;
+            font-size: 18px;
+            color: #FBFBFB;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease-in-out;
+            border: none;
+            position: relative;
+        }
+
+        .modern-table-header th:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        .modern-table-header th:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .modern-table-header th:hover {
+            background-color: #5A61D4;
+            transform: translateY(-1px);
+            cursor: pointer;
+        }
+
+        .modern-table tbody tr {
+            transition: background-color 0.15s ease-in-out;
+        }
+
+        .modern-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .modern-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #334155;
+        }
+
+        .modern-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .badge-approved { background-color: #dcfce7; color: #166534; }
+        .badge-pending { background-color: #fef3c7; color: #92400e; }
+        .badge-review { background-color: #dbeafe; color: #1e40af; }
+        .badge-rejected { background-color: #fecaca; color: #991b1b; }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            background: #f1f5f9;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+
+        .action-btn:hover {
+            background: #e2e8f0;
+            transform: scale(1.05);
+        }
+
+        .features {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .features h3 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .features ul {
+            list-style: none;
+            color: #64748b;
+        }
+
+        .features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .modern-table-header th {
+                font-size: 16px;
+                padding: 0.75rem 1rem;
+            }
+            
+            .modern-table td {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Modern Dashboard Table Header</h1>
+            <p>Clean, professional design with modern UI principles for finance and dashboard applications</p>
+        </div>
+        
+        <div class="table-wrapper">
+            <table class="modern-table">
+                <thead class="modern-table-header">
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Queries</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Office Supplies Purchase</strong></td>
+                        <td><span class="badge badge-approved">Procurement</span></td>
+                        <td><strong>$2,450.00</strong></td>
+                        <td><span class="badge badge-approved">Approved</span></td>
+                        <td>Jan 15, 2024</td>
+                        <td style="text-align: center;"><span style="background: #dbeafe; color: #1e40af; padding: 0.25rem 0.5rem; border-radius: 50%; font-weight: 600;">2</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn">👁</button>
+                                <button class="action-btn">✏️</button>
+                                <button class="action-btn">🗑</button>
+                                <button class="action-btn">⋯</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Campaign Budget</strong></td>
+                        <td><span class="badge badge-pending">Marketing</span></td>
+                        <td><strong>$15,000.00</strong></td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                        <td>Jan 14, 2024</td>
+                        <td style="text-align: center;"><span style="background: #f1f5f9; color: #64748b; padding: 0.25rem 0.5rem; border-radius: 50%; font-weight: 600;">0</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn">👁</button>
+                                <button class="action-btn">✏️</button>
+                                <button class="action-btn">🗑</button>
+                                <button class="action-btn">⋯</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IT Equipment Upgrade</strong></td>
+                        <td><span class="badge badge-review">Technology</span></td>
+                        <td><strong>$8,750.00</strong></td>
+                        <td><span class="badge badge-review">In Review</span></td>
+                        <td>Jan 13, 2024</td>
+                        <td style="text-align: center;"><span style="background: #dbeafe; color: #1e40af; padding: 0.25rem 0.5rem; border-radius: 50%; font-weight: 600;">1</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn">👁</button>
+                                <button class="action-btn">✏️</button>
+                                <button class="action-btn">🗑</button>
+                                <button class="action-btn">⋯</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Travel Expenses Q1</strong></td>
+                        <td><span class="badge badge-rejected">Travel</span></td>
+                        <td><strong>$3,200.00</strong></td>
+                        <td><span class="badge badge-rejected">Rejected</span></td>
+                        <td>Jan 12, 2024</td>
+                        <td style="text-align: center;"><span style="background: #dbeafe; color: #1e40af; padding: 0.25rem 0.5rem; border-radius: 50%; font-weight: 600;">3</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn">👁</button>
+                                <button class="action-btn">✏️</button>
+                                <button class="action-btn">🗑</button>
+                                <button class="action-btn">⋯</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="features">
+                <h3>Design Features</h3>
+                <ul>
+                    <li>Bold, 18px font size for headers with #FBFBFB white text</li>
+                    <li>Deep indigo background (#4D55CC) with subtle hover effects</li>
+                    <li>8px rounded corners for modern appearance</li>
+                    <li>Soft box shadow for depth and professionalism</li>
+                    <li>Responsive design with ample padding</li>
+                    <li>Clean action buttons with hover states</li>
+                    <li>Status badges with contextual colors</li>
+                    <li>Smooth transitions and modern UI principles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

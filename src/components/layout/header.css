@@ -1,0 +1,170 @@
+/* Modern Header Styles */
+.modern-header {
+  background: #0096C7;
+  box-shadow: 0 4px 12px rgba(0, 150, 199, 0.25);
+  border-radius: 12px;
+  font-family: 'Inter', 'Poppins', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+}
+
+.modern-header:hover {
+  box-shadow: 0 6px 20px rgba(0, 150, 199, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Title styling */
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FBFBFB;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.header-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #FBFBFB;
+  opacity: 0.85;
+  margin: 0;
+  margin-top: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Logo Styling */
+.header-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Removed button and avatar styling - no longer needed */
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modern-header {
+    margin: 8px;
+    border-radius: 10px;
+  }
+
+  .header-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .header-subtitle {
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 640px) {
+  .modern-header {
+    margin: 4px;
+    padding: 14px 18px;
+    border-radius: 8px;
+  }
+
+  .header-logo {
+    width: 01px;
+    height: 01px;
+  }
+
+  .header-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .header-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-animate {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Removed button and avatar specific styles - no longer needed */
+
+/* Print styles */
+@media print {
+  .modern-header {
+    background: #0096C7 !important;
+    box-shadow: none !important;
+    border: 1px solid #0096C7 !important;
+  }
+
+  .header-title,
+  .header-subtitle {
+    color: #0096C7 !important;
+    text-shadow: none !important;
+  }
+}
+
+/* Header Logout Button Styling */
+.header-logout-btn {
+  color: #FBFBFB;
+  font-weight: 700;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+.header-logout-btn svg {
+  width: 34px;
+  height: 34px;
+}
+.header-logout-btn:hover, .header-logout-btn:focus {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}

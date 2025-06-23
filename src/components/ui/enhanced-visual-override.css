@@ -1,0 +1,324 @@
+/* ENHANCED VISUAL OVERRIDE - STRONG VISUAL CHANGES */
+/* This CSS will forcefully apply the requested visual changes */
+
+/* Target ALL possible yellow highlighted elements */
+*[style*="background-color: #fef3c7"],
+*[style*="background-color: #fde68a"],
+*[style*="background-color: #fed7aa"],
+*[style*="background: #fef3c7"],
+*[style*="background: #fde68a"],
+*[style*="background: #fed7aa"],
+.bg-yellow-50,
+.bg-yellow-100,
+.bg-yellow-200,
+.bg-yellow-300,
+.highlighted,
+.highlight,
+.task-highlight,
+.maintenance-item,
+.repair-item,
+.office-item,
+.cleaning-item,
+.hvac-item,
+.electrical-item,
+.window-item,
+.paper-item,
+.ink-item,
+.supplies-item,
+.bulb-item,
+.task-item,
+.list-item,
+.item-row,
+.yellow-highlight,
+.highlighted-task,
+.task-list-item,
+.maintenance-task-item,
+.repair-task-item {
+  /* FORCE APPLY MODERN STYLING */
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-bottom: 12px !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-align: left !important;
+  width: 100% !important;
+  display: block !important;
+  text-decoration: none !important;
+}
+
+/* FORCE APPLY to text content inside highlighted elements */
+*[style*="background-color: #fef3c7"] *,
+*[style*="background-color: #fde68a"] *,
+*[style*="background: #fef3c7"] *,
+*[style*="background: #fde68a"] *,
+.bg-yellow-50 *,
+.bg-yellow-100 *,
+.bg-yellow-200 *,
+.highlighted *,
+.highlight *,
+.task-highlight *,
+.maintenance-item *,
+.repair-item *,
+.task-item *,
+.list-item *,
+.item-row *,
+.yellow-highlight *,
+.highlighted-task *,
+.task-list-item *,
+.maintenance-task-item *,
+.repair-task-item * {
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Add premium gradient overlay */
+*[style*="background-color: #fef3c7"]::before,
+*[style*="background-color: #fde68a"]::before,
+*[style*="background: #fef3c7"]::before,
+*[style*="background: #fde68a"]::before,
+.bg-yellow-50::before,
+.bg-yellow-100::before,
+.bg-yellow-200::before,
+.highlighted::before,
+.highlight::before,
+.task-highlight::before,
+.maintenance-item::before,
+.repair-item::before,
+.task-item::before,
+.list-item::before,
+.item-row::before,
+.yellow-highlight::before,
+.highlighted-task::before,
+.task-list-item::before,
+.maintenance-task-item::before,
+.repair-task-item::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Enhanced hover effects */
+*[style*="background-color: #fef3c7"]:hover,
+*[style*="background-color: #fde68a"]:hover,
+*[style*="background: #fef3c7"]:hover,
+*[style*="background: #fde68a"]:hover,
+.bg-yellow-50:hover,
+.bg-yellow-100:hover,
+.bg-yellow-200:hover,
+.highlighted:hover,
+.highlight:hover,
+.task-highlight:hover,
+.maintenance-item:hover,
+.repair-item:hover,
+.task-item:hover,
+.list-item:hover,
+.item-row:hover,
+.yellow-highlight:hover,
+.highlighted-task:hover,
+.task-list-item:hover,
+.maintenance-task-item:hover,
+.repair-task-item:hover {
+  background-color: #5BCAE8 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Active state */
+*[style*="background-color: #fef3c7"]:active,
+*[style*="background-color: #fde68a"]:active,
+*[style*="background: #fef3c7"]:active,
+*[style*="background: #fde68a"]:active,
+.bg-yellow-50:active,
+.bg-yellow-100:active,
+.bg-yellow-200:active,
+.highlighted:active,
+.highlight:active,
+.task-highlight:active,
+.maintenance-item:active,
+.repair-item:active,
+.task-item:active,
+.list-item:active,
+.item-row:active,
+.yellow-highlight:active,
+.highlighted-task:active,
+.task-list-item:active,
+.maintenance-task-item:active,
+.repair-task-item:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Focus state for accessibility */
+*[style*="background-color: #fef3c7"]:focus,
+*[style*="background-color: #fde68a"]:focus,
+*[style*="background: #fef3c7"]:focus,
+*[style*="background: #fde68a"]:focus,
+.bg-yellow-50:focus,
+.bg-yellow-100:focus,
+.bg-yellow-200:focus,
+.highlighted:focus,
+.highlight:focus,
+.task-highlight:focus,
+.maintenance-item:focus,
+.repair-item:focus,
+.task-item:focus,
+.list-item:focus,
+.item-row:focus,
+.yellow-highlight:focus,
+.highlighted-task:focus,
+.task-list-item:focus,
+.maintenance-task-item:focus,
+.repair-task-item:focus {
+  outline: 3px solid #FBFBFB !important;
+  outline-offset: 3px !important;
+}
+
+/* SPECIFIC TARGETING FOR COMMON PATTERNS */
+
+/* Table cells with yellow background */
+td[style*="background-color: #fef3c7"],
+td[style*="background-color: #fde68a"],
+th[style*="background-color: #fef3c7"],
+th[style*="background-color: #fde68a"],
+.table-cell-highlighted,
+.highlighted-cell {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* List items */
+li[style*="background-color: #fef3c7"],
+li[style*="background-color: #fde68a"],
+.list-item-highlighted {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-bottom: 12px !important;
+}
+
+/* Div containers */
+div[style*="background-color: #fef3c7"],
+div[style*="background-color: #fde68a"],
+.highlighted-container,
+.task-container {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  margin-bottom: 12px !important;
+}
+
+/* Span elements */
+span[style*="background-color: #fef3c7"],
+span[style*="background-color: #fde68a"],
+.highlighted-text {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Button elements */
+button[style*="background-color: #fef3c7"],
+button[style*="background-color: #fde68a"],
+.highlighted-button {
+  background-color: #48CAE4 !important;
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+/* FORCE OVERRIDE ANY CONFLICTING STYLES */
+.text-yellow-800,
+.text-yellow-700,
+.text-yellow-600,
+.text-amber-800,
+.text-amber-700 {
+  color: #FBFBFB !important;
+  font-weight: 600 !important;
+}
+
+/* Container styling for lists */
+.task-list-container,
+.maintenance-list-container,
+.item-list-container {
+  padding: 20px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  margin: 16px 0 !important;
+}
+
+/* Title styling */
+.task-list-title,
+.maintenance-title,
+.item-list-title {
+  color: #0077B6 !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  *[style*="background-color: #fef3c7"],
+  *[style*="background-color: #fde68a"],
+  .highlighted,
+  .highlight,
+  .task-highlight,
+  .maintenance-item,
+  .repair-item,
+  .task-item,
+  .list-item,
+  .item-row {
+    padding: 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  *[style*="background-color: #fef3c7"],
+  *[style*="background-color: #fde68a"],
+  .highlighted,
+  .highlight,
+  .task-highlight,
+  .maintenance-item,
+  .repair-item,
+  .task-item,
+  .list-item,
+  .item-row {
+    padding: 12px !important;
+    font-size: 12px !important;
+  }
+}
