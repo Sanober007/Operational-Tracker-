@@ -51,10 +51,10 @@ jobs:
 
        
       - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'OprationalTracker'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_094D71EA402947DB9BFBA3D6AE0B6E13 }}
+  id: deploy-to-webapp
+  uses: azure/webapps-deploy@v3
+  with:
+    app-name: 'OperationalTracker'
+    slot-name: 'production'
+    package: .
+    publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_094D71EA402947DB9BFBA3D6AE0B6E13 }}
